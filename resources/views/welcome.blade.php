@@ -1,31 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>PixelWeb</title>
+    <link rel="stylesheet" href="{{asset('css/MainPage.css')}}">
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">PixelWeb</h2>
+            </div>
 
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        </div>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>WebPixel</title>
-  </head>
-  <body>
+        <div class="content">
+            <h1>PixelWeb <br><span>Gaming Mania</span> <br>Website</h1>
+            <p class="par">
+                <br>Um gamer sempre aprende que para cada derrota, há sempre uma nova chance. O fim é
+                <br> apenas o recomeço. Eu não escolhi ser gamer, foi Gaming que me escolheu. E quem
+                <br> fala que gamers não tem amigo é porque nunca jogou uma partida online.</p>
 
-    @include('incs.navBar')
-    <h1>Página Incial </h1>
+                    <div class="form">
+                        <h2>Login Here</h2>
+                        <input type="email" name="email" placeholder="Enter Email Here">
+                        <input type="password" name="" placeholder="Enter Password Here">
+                        <button class="btnn"><a href="#">Login</a></button>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+                        <p class="link">Don't have an account<br>
+                        <a href="#">Sign up </a> here</a></p>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
-  </body>
+                </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
 </html>
