@@ -17,6 +17,24 @@
     @include('incs.navBar')
     <h1>Dashboard</h1>
 
+
+
+    <a href="{{ route('games.create') }}" class="btn btn-warning"> Adicionar Mais Jogos</a>
+
+
+
+
+        @foreach ($jogos as $jogo)
+                <H1>{{ $jogo->name }}</H1>
+        @endforeach
+
+
+
+
+
+
+
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->

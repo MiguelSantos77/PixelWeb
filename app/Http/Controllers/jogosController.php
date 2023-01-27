@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Game;
 
 class jogosController extends Controller
 {
@@ -11,9 +12,20 @@ class jogosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
+
+
+
+
     public function index()
     {
         //
+
+
+        $jogos = Game ::all();
+        return view('dashboard',compact('jogos'));
     }
 
     /**
@@ -24,6 +36,9 @@ class jogosController extends Controller
     public function create()
     {
         //
+
+
+        return view('game.create');
     }
 
     /**
@@ -35,6 +50,20 @@ class jogosController extends Controller
     public function store(Request $request)
     {
         //
+
+
+
+        $data = $request->validate([
+            'name' =>'required|min:3|max:255',
+        ]);
+        //gravar
+        $game= new Game;
+        $game->name= $data['name'];
+
+        $game->save();
+
+
+        return redirect('dashboard')->with('status','Jogo criado com sucesso!');
     }
 
     /**
