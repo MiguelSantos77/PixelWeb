@@ -6,7 +6,7 @@
 .main{
     width: 100%;
     height: 100vh;
-    background-image: url(future-gaming.gif);
+    background-image: url('/imgs/future-gaming.gif');
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
@@ -28,7 +28,7 @@
 
     background: -webkit-linear-gradient(left, #ff1053 0%, #ff4f0f 100% );
     background: linear-gradient(to right, #ff1053 0%,#ff4f0f 100% );
-    background-image: url('.imgs/logoRGB.gif');
+    background-image: url('/imgs/logoRGB.gif');
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 35px;
