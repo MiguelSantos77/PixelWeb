@@ -1,49 +1,87 @@
 
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>PixelWeb</title>
+    <link rel="stylesheet" href="{{ asset('css/paginaJogos.css') }}">
+</head>
+<body>
 
-    <title>WebPixel</title>
-  </head>
-  <body>
+    <div class="main">
+        <div class="navbar">
+            <div class="menu">
+                <ul>
+                    <li> <div class="icon">
+                        <h2 class="logo">PixelWeb</h2>
+                    </div></li>
 
-    @include('incs.navBar')
-    <h1>Dashboard</h1>
+                    @guest
+                    <li><a href="{{ route('login') }}">Login</a></li>
+                    <li><a href="{{ route('register') }}">Register</a></li>
+                    @endguest
+                    @auth
 
-
-
-    <a href="{{ route('games.create') }}" class="btn btn-warning"> Adicionar Mais Jogos</a>
-
-
-
-
-        @foreach ($jogos as $jogo)
-                <H1>{{ $jogo->name }}</H1>
-        @endforeach
-
-
-
-
-
+                    <li><a href="{{ route('games.create') }}">ADDGAME</a></li>
+                    <li><a href="{{ route('games.show', Auth::id()) }}">MYGAMES</a></li>
+                    <li><a href="{{ url('/logout') }}">LOGOUT</a></li>
+                    @endauth
+                </ul>
+            </div>
+        </div>
 
 
+        <div class="game1">
 
-    <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
-  </body>
+
+
+
+                @php
+                    $cont=0;
+                @endphp
+
+                @foreach ($jogos as $jogo )
+
+                @if($cont==0)
+
+
+                      <table>
+                    <tr>
+
+                @endif
+
+
+                    <td>
+                        <a href="{{ asset('userGames/'.$jogo->name    .$jogo->user_id. '/game/index.html') }}">  <img class="img1" src="{{ asset('userGames/'.$jogo->name    .$jogo->user_id.'/'.$jogo->nomeImagem)}}">  </a>
+                    </td>
+
+
+                    @php
+                        $cont++;
+                    @endphp
+                    @if($cont==4)
+
+
+                              </tr>
+                        </table>
+
+
+                        @php
+                        $cont=0;
+                    @endphp
+                    @endif
+
+
+                @endforeach
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
 </html>

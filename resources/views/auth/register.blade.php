@@ -1,47 +1,81 @@
 
-
-
-@include('incs.navBar')
-
 @guest
 
 
+  <!DOCTYPE html>
+  <html lang="pt">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Pixel WEB</title>
+      <style>
 
-<div class="dropdown-menu">
-    <form class="px-4 py-3" method="POST" action="{{ route('register') }}">
-        @csrf
+          body{
+              font-family: Arial, Helvetica, sans-serif;
+              width: 100%;
+              height: 100vh;
+              background-image: url({{ asset('imgs/register.gif') }});
+              background-repeat: no-repeat;
+              background-size: 100% 100%;
+              margin: 0px;
+          }
+          div{
+              background-color: rgba(0, 0, 0, 0.7);
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%,-50%);
+              padding: 80px;
+              border-radius: 15px;
+              color: #fff;
+          }
+          input{
+              padding: 15px;
+              border: none;
+              outline: none;
+              font-size: 15px;
+          }
+          button{
+              background-color: rgb(159, 1, 159);
+              border: none;
+              padding: 15px;
+              width: 100%;
+              border-radius: 10px;
+              color: white;
+              font-size: 15px;
 
+          }
+          button:hover{
+              background-color: purple;
+              cursor: pointer;
+          }
+      </style>
 
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required autofocus>
-          </div>
+  </head>
+  <body>
+      <div>
+          <h1>Registo</h1>
 
+          <form  method="POST" action="{{ route('register') }}">
+            @csrf
+          <input type="text" placeholder="Nome" id="name" name="name"  required autofocus>
+          <br><br>
+          <input type="email" placeholder="Email"  id="email"name="email"  required>
+          <br><br>
+          <input type="password" placeholder="Password"  id="password" name="password" required>
+          <br><br>
+          <input type="password" placeholder="Password confirmar" id="password_confirmation" name="password_confirmation" required>
+          <br><br>
+          <button type="submit">Registar</button>
+            
 
-
-
-          <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email"name="email" value="{{ old('email')}}" required>
+        </form>
       </div>
-
-      <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" name="password" required>
-      </div>
+  </body>
+  </html>
 
 
 
-      <div class="mb-3">
-        <label for="password_confirmation" class="form-label">password_confirmation</label>
-        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
-      </div>
-
-
-
-      <button type="submit" class="btn btn-primary">Register</button>
-    </form>
-
-  </div>
 
   @endguest

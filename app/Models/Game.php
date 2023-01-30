@@ -11,10 +11,12 @@ class Game extends Model
 
     protected $fillable = [
         'name',
+        'user_id',
+        'nomeImagem'
     ];
 
 
-    
+
 
 
 }
