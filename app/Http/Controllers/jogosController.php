@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Game;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\File;
 class jogosController extends Controller
 {
     /**
@@ -152,13 +153,15 @@ class jogosController extends Controller
     {
         //
         $jogo = Game::find($id);
+        $userId = Auth::id();
 
-        Storage::delete(public_path('userGames'.$jogo->nome.$jogo->id));
-        Storage::delete(asset('userGames'.$jogo->nome.$jogo->id));
-        unlink(public_path('userGames'.$jogo->nome.$jogo->id));
-        unlink(asset('userGames'.$jogo->nome.$jogo->id));
+
+        
+        File::deleteDirectory(public_path('userGames/'.$jogo->name.$userId));
 
 
         Game::where('id',$id)->delete();
+
+        return redirect('dashboard')->with('status','Jogo eliminado com sucesso!');
     }
 }

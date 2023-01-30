@@ -62,9 +62,17 @@
 
 
                     <td>
-                        <a href="{{ asset('userGames/'.$jogo->name    .$jogo->user_id. '/game/index.html') }}">  <img class="img1" src="{{ asset('userGames/'.$jogo->name    .$jogo->user_id.'/'.$jogo->nomeImagem)}}">  </a>
+                        <a href="{{ asset('userGames/'.$jogo->name   .$jogo->user_id. '/game/index.html') }}">  <img class="img1" src="{{ asset('userGames/'.$jogo->name    .$jogo->user_id.'/'.$jogo->nomeImagem)}}">  </a>
 
-                        <a href="{{ route('games.destroy', $jogo->id) }}" style="color: red; text-decoration: none; ">Eliminar</a>
+
+
+
+
+                        <form action="{{route('games.destroy', $jogo->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Apagar</button>
+                        </form>
                     </td>
 
 
